@@ -1,0 +1,33 @@
+---
+- name: Get all files from Rep 1
+  find:
+    paths: "{{ path_to_rep_1 }}"
+    patterns: '*.gz'
+  register: rep_1_out
+
+- name: Get all files from Rep 2
+  find: 
+    paths: "{{ path_to_rep_2 }}"
+    patterns: '*.gz'
+  register: rep_2_out
+
+- name: Perform Identity Testing
+  unarchive: 
+    src: "{{ item.0 }}"
+    dest: "{{ base_path }}/.biolighthouse/id_test/rep_1/{{ item.0 }}"
+  unarchive: 
+    src: "{{ item.1 }}"
+    dest: "{{ base_path }}/.biolighthouse/id_test/rep_2/{{ item.1 }}"
+  command: "diff {{ base_path }}/.biolighthouse/id_test/rep_1/{{ item.0 }} 
+    {{ base_path }}/.biolighthouse/id_test/rep_1/{{ item.0 }} 
+    > {{ base_path }}/.biolighthouse/id_test/1_2_{{ item.0 }}.out" 
+  file:
+    path: "{{ base_path }}/.biolighthouse/id_test/rep_1/{{ item.0 }}"
+    state: absent
+  file: 
+    path: "{{ base_path }}/.biolighthouse/id_test/rep_2/{{ item.1 }}"
+    state: absent
+  with_together:
+    - "{{ rep_1_out }}"
+    - "{{ rep_2_out }}"
+

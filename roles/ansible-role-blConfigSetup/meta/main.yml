@@ -1,0 +1,26 @@
+galaxy_info:
+  author: Tanner Dowhy
+  description: Ansible role template for creating configuration role in The BioLighthouse.
+
+  license: BSD
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+
+  galaxy_tags: ['biolighthouse', 'configure']
+
+dependencies:
+ - biolighthouse.conda

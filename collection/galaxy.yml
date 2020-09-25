@@ -1,0 +1,13 @@
+namespace: coadunate
+name: thebiolighthouse
+version: 0.1.2
+readme: README.md
+authors:
+  - Tanner Dowhy (https://github.com/TannerDowhy)
+description: null
+license: 0BSD
+dependencies: null
+repository: https://github.com/TannerDowhy/TheBioLighthouse
+documentation: https://github.com/TannerDowhy/TheBioLighthouse/tree/master/docs
+homepage: https://github.com/TannerDowhy/TheBioLighthouse
+issues: https://github.com/TannerDowhy/TheBioLighthouse

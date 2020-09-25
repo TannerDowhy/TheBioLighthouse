@@ -1,0 +1,50 @@
+- name: Detect environment
+  set_fact:
+    base_path: "{% if ansible_domain == 'cedar.computecanada.ca' %} \
+      {{ ansible_env.HOME }}/scratch{% else %}{{ ansible_env.HOME }}{% endif %}"
+  when: base_path is not defined
+
+- name: Create /tmp/biolighthouse directory
+  file:
+    path: /tmp/biolighthouse
+    state: directory
+  notify: Remove /tmp/biolighthouse directory
+
+- name: Get util files
+  get_url:
+    url: "{{ conda_util_file }}"
+    dest: /tmp/biolighthouse/
+
+- name: Create a conda environment
+  conda_create:
+    name: "cutadapt"
+    executable: "{{ base_path }}/.biolighthouse/software/conda/bin/conda"
+
+- name: Put environment activation in .bashrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "conda activate bl_cutadapt"
+  notify: Remove environment activation from .bashrc
+
+- name: Install biopython via conda
+  conda_install:
+    name: 'biopython'
+    version: "{{ version }}"
+    executable: "{{ conda_executable }}"
+    channel: bioconda
+    environment: bl_cutadapt
+
+- name: Install cutadapt via conda
+  conda_install:
+    name: 'cutadapt'
+    version: "{{ version }}"
+    executable: "{{ conda_executable }}"
+    channel: [bioconda, conda-forge]
+    environment: bl_cutadapt
+
+
+- name: Remove environment activation in .bashrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    regexp: "^conda activate bl_*"
+    state: absent

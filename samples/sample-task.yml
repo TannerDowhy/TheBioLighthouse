@@ -1,0 +1,22 @@
+---
+
+- name: Copy a file
+  copy: 
+    src: {{ source-path }}
+    dest: {{ dest-path }}
+    mode: '0700'
+
+
+
+    
+
+
+
+
+
+
+- name: Perform a task
+  foo: 
+  	foo_1: {{ foo_1 }}
+  	foo_2: {{ foo_2 }}
+  	state: foo
