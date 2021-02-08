@@ -1,0 +1,36 @@
+[submodule "roles/ansible-role-tCoffee"]
+	path = roles/ansible-role-tCoffee
+	url = https://github.com/TannerDowhy/ansible-role-tCoffee.git
+[submodule "roles/ansible-role-pear"]
+	path = roles/ansible-role-pear
+	url = https://github.com/TannerDowhy/ansible-role-pear.git
+[submodule "roles/ansible-role-flash2"]
+	path = roles/ansible-role-flash2
+	url = https://github.com/TannerDowhy/ansible-role-flash2.git
+[submodule "roles/ansible-role-fasttree"]
+	path = roles/ansible-role-fasttree
+	url = https://github.com/TannerDowhy/ansible-role-fasttree.git
+[submodule "roles/ansible-role-emboss"]
+	path = roles/ansible-role-emboss
+	url = https://github.com/TannerDowhy/ansible-role-emboss.git
+[submodule "roles/ansible-role-deblur"]
+	path = roles/ansible-role-deblur
+	url = https://github.com/TannerDowhy/ansible-role-deblur.git
+[submodule "roles/ansible-role-dada2"]
+	path = roles/ansible-role-dada2
+	url = https://github.com/TannerDowhy/ansible-role-dada2.git
+[submodule "roles/ansible-role-cutadapt"]
+	path = roles/ansible-role-cutadapt
+	url = https://github.com/TannerDowhy/ansible-role-cutadapt.git
+[submodule "roles/ansible-role-cdHit"]
+	path = roles/ansible-role-cdHit
+	url = https://github.com/TannerDowhy/ansible-role-cdHit.git
+[submodule "roles/ansible-role-bwa"]
+	path = roles/ansible-role-bwa
+	url = https://github.com/TannerDowhy/ansible-role-bwa.git
+[submodule "roles/ansible-role-blast"]
+	path = roles/ansible-role-blast
+	url = https://github.com/TannerDowhy/ansible-role-blast.git
+[submodule "roles/ansible-role-conda"]
+	path = roles/ansible-role-conda
+	url = https://github.com/TannerDowhy/ansible-role-conda.git
